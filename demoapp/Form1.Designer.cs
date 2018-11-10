@@ -43,6 +43,7 @@ namespace demoapp
             this.imageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inputChannelsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.externalTriggerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.speedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.ToolbarPlayButton = new System.Windows.Forms.ToolStripButton();
             this.ToolBarStopButton = new System.Windows.Forms.ToolStripButton();
@@ -54,7 +55,6 @@ namespace demoapp
             this.ToolBarPropertiesButton = new System.Windows.Forms.ToolStripButton();
             this.ToolBarInputChannel = new System.Windows.Forms.ToolStripDropDownButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.ToolBarTriggerButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripTextBox2 = new System.Windows.Forms.ToolStripTextBox();
@@ -62,6 +62,8 @@ namespace demoapp
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
             this.icImagingControl1 = new TIS.Imaging.ICImagingControl();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
@@ -74,7 +76,7 @@ namespace demoapp
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.speedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolBarTriggerButton = new System.Windows.Forms.ToolStripButton();
             this.MainMenu1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.icImagingControl1)).BeginInit();
@@ -142,14 +144,14 @@ namespace demoapp
             // playToolStripMenuItem
             // 
             this.playToolStripMenuItem.Name = "playToolStripMenuItem";
-            this.playToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.playToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.playToolStripMenuItem.Text = "Play";
             this.playToolStripMenuItem.Click += new System.EventHandler(this.playToolStripMenuItem_Click);
             // 
             // stopToolStripMenuItem
             // 
             this.stopToolStripMenuItem.Name = "stopToolStripMenuItem";
-            this.stopToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.stopToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.stopToolStripMenuItem.Text = "Stop";
             this.stopToolStripMenuItem.Click += new System.EventHandler(this.stopToolStripMenuItem_Click);
             // 
@@ -192,6 +194,13 @@ namespace demoapp
             this.externalTriggerToolStripMenuItem.Text = "External Trigger";
             this.externalTriggerToolStripMenuItem.Click += new System.EventHandler(this.externalTriggerToolStripMenuItem_Click);
             // 
+            // speedToolStripMenuItem
+            // 
+            this.speedToolStripMenuItem.Name = "speedToolStripMenuItem";
+            this.speedToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.speedToolStripMenuItem.Text = "Speed";
+            this.speedToolStripMenuItem.Click += new System.EventHandler(this.speedToolStripMenuItem_Click);
+            // 
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -212,10 +221,12 @@ namespace demoapp
             this.toolStripButton5,
             this.toolStripButton3,
             this.toolStripButton2,
-            this.toolStripButton4});
+            this.toolStripButton4,
+            this.toolStripLabel1,
+            this.toolStripComboBox1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 26);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(881, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(881, 26);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             this.toolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
@@ -226,7 +237,7 @@ namespace demoapp
             this.ToolbarPlayButton.Image = ((System.Drawing.Image)(resources.GetObject("ToolbarPlayButton.Image")));
             this.ToolbarPlayButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.ToolbarPlayButton.Name = "ToolbarPlayButton";
-            this.ToolbarPlayButton.Size = new System.Drawing.Size(23, 22);
+            this.ToolbarPlayButton.Size = new System.Drawing.Size(23, 23);
             this.ToolbarPlayButton.Text = "Start the live video.";
             // 
             // ToolBarStopButton
@@ -235,13 +246,13 @@ namespace demoapp
             this.ToolBarStopButton.Image = ((System.Drawing.Image)(resources.GetObject("ToolBarStopButton.Image")));
             this.ToolBarStopButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.ToolBarStopButton.Name = "ToolBarStopButton";
-            this.ToolBarStopButton.Size = new System.Drawing.Size(23, 22);
+            this.ToolBarStopButton.Size = new System.Drawing.Size(23, 23);
             this.ToolBarStopButton.Text = "Stop the live video.";
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 26);
             // 
             // ToolBarSnapButton
             // 
@@ -249,7 +260,7 @@ namespace demoapp
             this.ToolBarSnapButton.Image = ((System.Drawing.Image)(resources.GetObject("ToolBarSnapButton.Image")));
             this.ToolBarSnapButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.ToolBarSnapButton.Name = "ToolBarSnapButton";
-            this.ToolBarSnapButton.Size = new System.Drawing.Size(23, 22);
+            this.ToolBarSnapButton.Size = new System.Drawing.Size(23, 23);
             this.ToolBarSnapButton.Text = "Snap an image and save it to disk.";
             // 
             // ToolBarAVIButton
@@ -258,13 +269,13 @@ namespace demoapp
             this.ToolBarAVIButton.Image = ((System.Drawing.Image)(resources.GetObject("ToolBarAVIButton.Image")));
             this.ToolBarAVIButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.ToolBarAVIButton.Name = "ToolBarAVIButton";
-            this.ToolBarAVIButton.Size = new System.Drawing.Size(23, 22);
+            this.ToolBarAVIButton.Size = new System.Drawing.Size(23, 23);
             this.ToolBarAVIButton.Text = "Open the AVI Capture dialog";
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 26);
             // 
             // ToolBarDeviceButton
             // 
@@ -272,7 +283,7 @@ namespace demoapp
             this.ToolBarDeviceButton.Image = ((System.Drawing.Image)(resources.GetObject("ToolBarDeviceButton.Image")));
             this.ToolBarDeviceButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.ToolBarDeviceButton.Name = "ToolBarDeviceButton";
-            this.ToolBarDeviceButton.Size = new System.Drawing.Size(23, 22);
+            this.ToolBarDeviceButton.Size = new System.Drawing.Size(23, 23);
             this.ToolBarDeviceButton.Text = "Select a video capture device, video format and frame rate.";
             // 
             // ToolBarPropertiesButton
@@ -281,7 +292,7 @@ namespace demoapp
             this.ToolBarPropertiesButton.Image = ((System.Drawing.Image)(resources.GetObject("ToolBarPropertiesButton.Image")));
             this.ToolBarPropertiesButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.ToolBarPropertiesButton.Name = "ToolBarPropertiesButton";
-            this.ToolBarPropertiesButton.Size = new System.Drawing.Size(23, 22);
+            this.ToolBarPropertiesButton.Size = new System.Drawing.Size(23, 23);
             this.ToolBarPropertiesButton.Text = "Show camera and video properties dialog.";
             // 
             // ToolBarInputChannel
@@ -290,28 +301,18 @@ namespace demoapp
             this.ToolBarInputChannel.Image = ((System.Drawing.Image)(resources.GetObject("ToolBarInputChannel.Image")));
             this.ToolBarInputChannel.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.ToolBarInputChannel.Name = "ToolBarInputChannel";
-            this.ToolBarInputChannel.Size = new System.Drawing.Size(29, 22);
+            this.ToolBarInputChannel.Size = new System.Drawing.Size(29, 23);
             this.ToolBarInputChannel.Text = "Select an input channel.";
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
-            // 
-            // ToolBarTriggerButton
-            // 
-            this.ToolBarTriggerButton.CheckOnClick = true;
-            this.ToolBarTriggerButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.ToolBarTriggerButton.Image = ((System.Drawing.Image)(resources.GetObject("ToolBarTriggerButton.Image")));
-            this.ToolBarTriggerButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.ToolBarTriggerButton.Name = "ToolBarTriggerButton";
-            this.ToolBarTriggerButton.Size = new System.Drawing.Size(23, 22);
-            this.ToolBarTriggerButton.Text = "Enable or disable the external trigger.";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 26);
             // 
             // toolStripTextBox1
             // 
             this.toolStripTextBox1.Name = "toolStripTextBox1";
-            this.toolStripTextBox1.Size = new System.Drawing.Size(100, 25);
+            this.toolStripTextBox1.Size = new System.Drawing.Size(100, 26);
             this.toolStripTextBox1.ToolTipText = "âÊëúéBâeä‘äuÇì¸óÕ\r\n";
             this.toolStripTextBox1.Click += new System.EventHandler(this.toolStripTextBox1_Click);
             // 
@@ -321,14 +322,14 @@ namespace demoapp
             this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton1.Size = new System.Drawing.Size(23, 23);
             this.toolStripButton1.Text = "âÊëúéBâeä‘äuämíË";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // toolStripTextBox2
             // 
             this.toolStripTextBox2.Name = "toolStripTextBox2";
-            this.toolStripTextBox2.Size = new System.Drawing.Size(100, 25);
+            this.toolStripTextBox2.Size = new System.Drawing.Size(100, 26);
             this.toolStripTextBox2.ToolTipText = "éBâeâÊëúñáêîÇì¸óÕ\r\n";
             // 
             // toolStripButton5
@@ -337,7 +338,7 @@ namespace demoapp
             this.toolStripButton5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton5.Image")));
             this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton5.Name = "toolStripButton5";
-            this.toolStripButton5.Size = new System.Drawing.Size(60, 22);
+            this.toolStripButton5.Size = new System.Drawing.Size(60, 23);
             this.toolStripButton5.Text = "éBâeñáêî";
             this.toolStripButton5.Click += new System.EventHandler(this.toolStripButton5_Click);
             // 
@@ -348,7 +349,7 @@ namespace demoapp
             this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
             this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(60, 22);
+            this.toolStripButton3.Size = new System.Drawing.Size(60, 23);
             this.toolStripButton3.Text = "éBâeäJén";
             this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
             // 
@@ -358,7 +359,7 @@ namespace demoapp
             this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
             this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(60, 22);
+            this.toolStripButton2.Size = new System.Drawing.Size(60, 23);
             this.toolStripButton2.Text = "å¥ì_ïúãA";
             this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
             // 
@@ -368,9 +369,39 @@ namespace demoapp
             this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
             this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(60, 22);
+            this.toolStripButton4.Size = new System.Drawing.Size(60, 23);
             this.toolStripButton4.Text = "å¥ì_ê›íË";
             this.toolStripButton4.Click += new System.EventHandler(this.toolStripButton4_Click);
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(44, 23);
+            this.toolStripLabel1.Text = "ägëÂó¶";
+            this.toolStripLabel1.Click += new System.EventHandler(this.toolStripLabel1_Click);
+            // 
+            // toolStripComboBox1
+            // 
+            this.toolStripComboBox1.Items.AddRange(new object[] {
+            "50%",
+            "60%",
+            "70%",
+            "80%",
+            "90%",
+            "100%",
+            "200%",
+            "300%",
+            "400%",
+            "500%",
+            "600%",
+            "700%",
+            "800%",
+            "900%",
+            "1000%"});
+            this.toolStripComboBox1.Name = "toolStripComboBox1";
+            this.toolStripComboBox1.Size = new System.Drawing.Size(121, 26);
+            this.toolStripComboBox1.Tag = "";
+            this.toolStripComboBox1.TextChanged += new System.EventHandler(this.toolStripComboBox1_TextChanged);
             // 
             // icImagingControl1
             // 
@@ -389,7 +420,7 @@ namespace demoapp
             // 
             // toolStrip2
             // 
-            this.toolStrip2.Location = new System.Drawing.Point(0, 51);
+            this.toolStrip2.Location = new System.Drawing.Point(0, 52);
             this.toolStrip2.Name = "toolStrip2";
             this.toolStrip2.Size = new System.Drawing.Size(881, 25);
             this.toolStrip2.TabIndex = 3;
@@ -499,12 +530,15 @@ namespace demoapp
             this.label3.TabIndex = 0;
             this.label3.Text = "label3";
             // 
-            // speedToolStripMenuItem
+            // ToolBarTriggerButton
             // 
-            this.speedToolStripMenuItem.Name = "speedToolStripMenuItem";
-            this.speedToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
-            this.speedToolStripMenuItem.Text = "Speed";
-            this.speedToolStripMenuItem.Click += new System.EventHandler(this.speedToolStripMenuItem_Click);
+            this.ToolBarTriggerButton.CheckOnClick = true;
+            this.ToolBarTriggerButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.ToolBarTriggerButton.Image = ((System.Drawing.Image)(resources.GetObject("ToolBarTriggerButton.Image")));
+            this.ToolBarTriggerButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ToolBarTriggerButton.Name = "ToolBarTriggerButton";
+            this.ToolBarTriggerButton.Size = new System.Drawing.Size(23, 23);
+            this.ToolBarTriggerButton.Text = "Enable or disable the external trigger.";
             // 
             // Form1
             // 
@@ -567,7 +601,6 @@ namespace demoapp
         private System.Windows.Forms.ToolStripButton ToolBarDeviceButton;
         private System.Windows.Forms.ToolStripButton ToolBarPropertiesButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
-        private System.Windows.Forms.ToolStripButton ToolBarTriggerButton;
         private System.Windows.Forms.ToolStripDropDownButton ToolBarInputChannel;
         private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
@@ -588,6 +621,9 @@ namespace demoapp
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ToolStripMenuItem speedToolStripMenuItem;
+        private System.Windows.Forms.ToolStripComboBox toolStripComboBox1;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
+        private System.Windows.Forms.ToolStripButton ToolBarTriggerButton;
     }
 }
 

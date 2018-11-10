@@ -29,6 +29,8 @@ namespace demoapp
         private int maxSpeed = 5500;
         private int acceleration = 100;
 
+        private bool isActive = false;
+
         // DeNoiseフィルタ n枚のフレームを平均化する
         //FrameFilter DeNoiseFilter;
         //DeNoiseFilter = icImagingControl1.FrameFilterCreate("Denoise"", "");
@@ -44,15 +46,15 @@ namespace demoapp
         private void Form1_Load(object sender, EventArgs e)
         {
             // deviceの設定 *
-            if (!icImagingControl1.DeviceValid)
-            {
-                icImagingControl1.ShowDeviceSettingsDialog();
-                if (!icImagingControl1.DeviceValid)
-                {
-                    Close();
-                    return;
-                }
-            }
+            // if (!icImagingControl1.DeviceValid)
+            // {
+            //     icImagingControl1.ShowDeviceSettingsDialog();
+            //     if (!icImagingControl1.DeviceValid)
+            //     {
+            //         Close();
+            //         return;
+            //     }
+            // }
 
             // フィルタモジュールへのフルパス保存にコレクションを使う *
             modulePathCollection = new System.Collections.Specialized.StringCollection();
@@ -69,10 +71,15 @@ namespace demoapp
                 }
             }
 
+            toolStripComboBox1.SelectedIndex = 5;
+
+            isActive = true;
 
             LoadLastUsedDevice();
             UpdateControls();
             StartLiveVideo();
+            // icImagingControl1.LiveDisplayZoomFactor = 160.0F;
+            Console.WriteLine(isActive);
         }
 
         /// <summary>
@@ -863,6 +870,25 @@ namespace demoapp
         private void ToolbarPlayButton_Click(object sender, EventArgs e)
         {
 
+        }
+
+
+        private void toolStripLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripComboBox1_TextChanged(object sender, EventArgs e)
+        {
+            if (isActive)
+            {            
+                string selected = toolStripComboBox1.Text;
+                float percentage = float.Parse(selected.Substring(0, selected.Length - 1)) / 10.0F;
+                icImagingControl1.LiveDisplayDefault = false;
+                icImagingControl1.LiveDisplayZoomFactor = percentage;
+                Console.WriteLine(percentage);
+            }
+            
         }
     }
 }
